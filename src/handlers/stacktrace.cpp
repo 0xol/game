@@ -7,7 +7,6 @@
 #endif
 
 void stacktraceHandler::printStackTrace(void) {
-
     #ifdef _WIN32
     std::cout << "STACKTRACING NOT SUPPORTED ON WIN32" << std::endl;
     #else
