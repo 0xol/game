@@ -4,10 +4,13 @@
 #include <raylib.h>
 #include <iostream>
 #include <handlers/stacktrace.hpp>
+#include <external/rlImGui.h>
+#include <external/imgui.h>
 
 void engineThreadHandler::startThread(void) {
     InitWindow(1280, 720, "Midnight");
     SetTargetFPS(60);
+    rlImGuiSetup(false);
 
     state = MAIN_MENU;
 
@@ -18,9 +21,9 @@ void engineThreadHandler::startThread(void) {
     mainMenuCam.offset.y = 0 + (GetScreenHeight() / 2);
 
     while (!WindowShouldClose() & (state != STOP)) {
-
         BeginDrawing();
         ClearBackground(WHITE);
+        rlImGuiBegin();
 
         switch (state) {
         case MAIN_MENU:
@@ -31,8 +34,10 @@ void engineThreadHandler::startThread(void) {
         break;
         }
 
+        rlImGuiEnd();
         EndDrawing();
     }
+    rlImGuiShutdown();
     CloseWindow();
     exitSafely();
 }

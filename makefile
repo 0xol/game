@@ -16,6 +16,7 @@ all:
 	$(cxx) $(cxxflags) -c src/external/imgui_draw.cpp -o bin/external_imgui_draw.o
 	$(cxx) $(cxxflags) -c src/external/imgui_tables.cpp -o bin/external_imgui_tables.o
 	$(cxx) $(cxxflags) -c src/external/imgui_widgets.cpp -o bin/external_imgui_widgets.o
+	$(cxx) $(cxxflags) -c src/external/imgui_demo.cpp -o bin/external_imgui_demo.o
 
 #gameThread
 	$(cxx) $(cxxflags) -c src/handlers/gameThread/main.cpp -o bin/handlers_gameThread_main.o
