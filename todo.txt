@@ -1,0 +1,2 @@
+todo list:
+panic with stack tracer functions
