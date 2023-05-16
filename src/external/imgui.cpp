@@ -3573,8 +3573,8 @@ void ImGui::Shutdown()
         return;
 
     // Save settings (unless we haven't attempted to load them: CreateContext/DestroyContext without a call to NewFrame shouldn't save an empty file)
-    if (g.SettingsLoaded && g.IO.IniFilename != NULL)
-        SaveIniSettingsToDisk(g.IO.IniFilename);
+    //if (g.SettingsLoaded && g.IO.IniFilename != NULL)
+    //    SaveIniSettingsToDisk(g.IO.IniFilename);
 
     CallContextHooks(&g, ImGuiContextHookType_Shutdown);
 
@@ -12721,8 +12721,8 @@ void ImGui::UpdateSettings()
     if (!g.SettingsLoaded)
     {
         IM_ASSERT(g.SettingsWindows.empty());
-        if (g.IO.IniFilename)
-            LoadIniSettingsFromDisk(g.IO.IniFilename);
+        //if (g.IO.IniFilename)
+        //    LoadIniSettingsFromDisk(g.IO.IniFilename);
         g.SettingsLoaded = true;
     }
 

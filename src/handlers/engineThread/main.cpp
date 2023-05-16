@@ -10,7 +10,7 @@
 void engineThreadHandler::startThread(void) {
     InitWindow(1280, 720, "Midnight");
     SetTargetFPS(60);
-    rlImGuiSetup(false);
+    rlImGuiSetup(true);
 
     state = MAIN_MENU;
 

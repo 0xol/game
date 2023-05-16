@@ -24,6 +24,7 @@ all:
 #engineThread
 	$(cxx) $(cxxflags) -c src/handlers/engineThread/main.cpp -o bin/handlers_engineThread_main.o
 	$(cxx) $(cxxflags) -c src/handlers/engineThread/mainMenu.cpp -o bin/handlers_engineThread_mainMenu.o
+	$(cxx) $(cxxflags) -c src/handlers/engineThread/menus.cpp -o bin/handlers_engineThread_menus.o
 
 linux: all
 	$(cxx) -O2 -g -rdynamic bin/*.o -o midnight $(libs) -no-pie -lboost_stacktrace_noop -lGL -lm -lpthread -ldl -lrt -lX11 -DPLATFORM_DESKTOP 
