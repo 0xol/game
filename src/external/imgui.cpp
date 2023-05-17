@@ -12732,10 +12732,10 @@ void ImGui::UpdateSettings()
         g.SettingsDirtyTimer -= g.IO.DeltaTime;
         if (g.SettingsDirtyTimer <= 0.0f)
         {
-            if (g.IO.IniFilename != NULL)
-                SaveIniSettingsToDisk(g.IO.IniFilename);
-            else
-                g.IO.WantSaveIniSettings = true;  // Let user know they can call SaveIniSettingsToMemory(). user will need to clear io.WantSaveIniSettings themselves.
+            //if (g.IO.IniFilename != NULL)
+                //SaveIniSettingsToDisk(g.IO.IniFilename);
+            //else
+                //g.IO.WantSaveIniSettings = true;  // Let user know they can call SaveIniSettingsToMemory(). user will need to clear io.WantSaveIniSettings themselves.
             g.SettingsDirtyTimer = 0.0f;
         }
     }

@@ -22,7 +22,7 @@ void engineThreadHandler::startThread(void) {
 
     while (!WindowShouldClose() & (state != STOP)) {
         BeginDrawing();
-        ClearBackground(WHITE);
+        ClearBackground(GRAY);
         rlImGuiBegin();
 
         switch (state) {
