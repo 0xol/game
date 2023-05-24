@@ -30,7 +30,7 @@ void engineThreadHandler::startThread(void) {
         mainMenu();
         break;
         case GAME:
-
+        
         break;
         default:
         stacktrace.panic("[ERROR] engineHandlerThread::state is invalid\n");

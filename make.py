@@ -45,3 +45,7 @@ for thread in threads:
 if sys.platform == "win32":
     subprocess.run(f"{CXX} -O2 -g bin/*.o -o midnight.exe -lraylib -lopengl32 -lws2_32 -lgdi32 -lImagehlp -lwinmm -DPLATFORM_DESKTOP", shell=True)
     print("[LD] midnight.exe")
+
+if sys.platform == "linux":
+    subprocess.run(f"{CXX} -O2 -rdynamic -g bin/*.o -o midnight -no-pie -lraylib -lboost_stacktrace_noop -lGL -lm -lpthread -ldl -lrt -lX11 -DPLATFORM_DESKTOP", shell=True)
+    print("[LD] midnight")
