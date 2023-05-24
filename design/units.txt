@@ -1,0 +1,1 @@
+Unit list can be acessed through std::vector<unit> gameThread.unit.allUnits

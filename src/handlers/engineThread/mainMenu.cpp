@@ -19,33 +19,31 @@ void cacheSaveFilenames() { //will save them to cachedSaveFilenames
 
     for (auto file : std::filesystem::directory_iterator("saves")) {if (file.path().extension() == ".sav") {
         cachedSaveFilenames.push_back(file.path().filename().string());
-        std::cout << file.path().filename().string() << std::endl;
     }}
 }
 
 void engineThreadHandler::mainMenu(void) {
     BeginMode2D(mainMenuCam);
 
-    if (!startMenuDone) {ImGui::SetNextWindowSize(ImVec2(512, 512)); cacheSaveFilenames(); startMenuDone = true;}
+    if (!startMenuDone) {ImGui::SetNextWindowSize(ImVec2(512, 0)); cacheSaveFilenames(); startMenuDone = true;}
 
     ImGui::Begin("start menu", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
-    ImGui::BeginChild("ScrollingRegion", ImVec2(0, 0), true, ImGuiWindowFlags_HorizontalScrollbar);
     
+    //load save file
+    ImGui::BeginChild("ScrollingRegion", ImVec2(0, 200), true, ImGuiWindowFlags_HorizontalScrollbar);
     for (const auto& file : cachedSaveFilenames) {
-        ImGui::Text("%s", file.c_str());
-    }
-    /*
-    
-        if (ImGui::Selectable(file.c_str(), false, ImGuiSelectableFlags_AllowDoubleClick)) {
-            if (ImGui::IsMouseDoubleClicked(0)) {
-                std::cout << file << "selected" << std::endl;
-            }
-            
+        if(ImGui::Selectable(file.c_str())) {
+            std::cout << file << " selected\n";
+            stacktrace.panic("[ERROR]: Save loaded, feature not implemented\n");
         }
     }
-    */
-
     ImGui::EndChild();
+    
+    //new save button
+    if (ImGui::Button("New save", ImVec2(512, 100))) {
+        newSave();
+    }
+    
     ImGui::End();
     EndMode2D();
 }

@@ -4,7 +4,7 @@
 #include <string>
 
 #define MAIN_MENU 0
-#define GAME 1 //starts gameThreadHandler
+#define GAME 1 //if in this state, the gameThread has started
 #define STOP 2
 
 class engineThreadHandler {
@@ -13,6 +13,7 @@ class engineThreadHandler {
         Camera2D mainMenuCam;
         void mainMenu(void);
         void saveSelect(std::string saveFilename);
+        void newSave(void);
 
         int state; //main menu, game etc
         void stopThread(void);

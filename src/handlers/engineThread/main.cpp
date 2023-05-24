@@ -29,6 +29,9 @@ void engineThreadHandler::startThread(void) {
         case MAIN_MENU:
         mainMenu();
         break;
+        case GAME:
+
+        break;
         default:
         stacktrace.panic("[ERROR] engineHandlerThread::state is invalid\n");
         break;
